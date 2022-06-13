@@ -31,16 +31,32 @@ import java.util.*;
  */
 public interface Problem<E> {
 
-    /** Returns true if the given list is a valid, successful combination. */
+    /**
+     * Returns true if the given list is a valid, successful combination.
+     *
+     * @param soFar the combination of options
+     * @return true if the combination is valid and successful (complete)
+     */
     public boolean isSuccess(List<E> soFar);
 
-    /** Returns true if the given list is a valid, partial combination. */
+    /**
+     * Returns true if the given list is a valid, partial combination.
+     *
+     * @param soFar the combination of options
+     * @return true if the combination is valid and partial (incomplete)
+     */
     public boolean isPartial(List<E> soFar);
 
-    /** Returns all the options that can be explored. */
+    /**
+     * Returns all the options that can be explored.
+     *
+     * @return an iterable containing all options
+     */
     public Iterable<E> options();
 
-    /** Prints-out all the valid, successful combinations of options. */
+    /**
+     * Prints-out all the valid, successful combinations of options.
+     */
     public default void enumerate() {
         enumerate(new ArrayList<E>());
     }
